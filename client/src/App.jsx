@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
+const API_URL = "https://blog-manager-u4hj.onrender.com/blogs";
+
 function App() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -10,7 +12,7 @@ function App() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/blogs");
+      const res = await axios.get(API_URL);
       setBlogs(res.data);
     } catch (error) {
       console.log(error);
@@ -28,7 +30,7 @@ function App() {
     }
 
     try {
-      await axios.post("http://localhost:5000/blogs", {
+      await axios.post(API_URL, {
         title,
         content,
       });
@@ -55,13 +57,10 @@ function App() {
 
   const updateBlog = async () => {
     try {
-      await axios.put(
-        `http://localhost:5000/blogs/${editingId}`,
-        {
-          title,
-          content,
-        }
-      );
+      await axios.put(`${API_URL}/${editingId}`, {
+        title,
+        content,
+      });
 
       setTitle("");
       setContent("");
@@ -75,7 +74,7 @@ function App() {
 
   const deleteBlog = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/blogs/${id}`);
+      await axios.delete(`${API_URL}/${id}`);
       fetchBlogs();
     } catch (error) {
       console.log(error);
@@ -101,16 +100,8 @@ function App() {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <button
-          onClick={
-            editingId
-              ? updateBlog
-              : createBlog
-          }
-        >
-          {editingId
-            ? "Update Blog ✏️"
-            : "Create Blog 🚀"}
+        <button onClick={editingId ? updateBlog : createBlog}>
+          {editingId ? "Update Blog ✏️" : "Create Blog 🚀"}
         </button>
       </div>
 
@@ -125,9 +116,7 @@ function App() {
               <h3>{blog.title}</h3>
               <p>{blog.content}</p>
 
-              <button
-                onClick={() => editBlog(blog)}
-              >
+              <button onClick={() => editBlog(blog)}>
                 Edit ✏️
               </button>
 
