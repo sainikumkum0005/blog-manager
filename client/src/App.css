@@ -166,4 +166,88 @@ button:hover {
 
 .blog-card button:first-of-type:hover {
   box-shadow: 0 0 20px #00b894;
+} 
+/* --- Multi-User & Gamified Neon Design Extension --- */
+
+.auth-card {
+  max-width: 450px;
+  width: 100%;
+  animation: neonPulse 3s infinite alternate;
+}
+
+.toggle-auth-mode {
+  text-align: center;
+  margin-top: 20px !important;
+  cursor: pointer;
+  color: #0084ff !important;
+  font-size: 0.9rem !important;
+  transition: all 0.3s;
+}
+
+.toggle-auth-mode:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(0, 132, 255, 0.6);
+}
+
+.gamified-stats-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.logout-btn {
+  width: auto !important;
+  margin-top: 0 !important;
+  padding: 10px 20px !important;
+  font-size: 0.9rem !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 59, 92, 0.4) !important;
+  border-radius: 50px !important;
+}
+
+.logout-btn:hover {
+  background: #ff3b5c !important;
+  box-shadow: 0 0 20px rgba(255, 59, 92, 0.6) !important;
+}
+
+.stat-badge {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.streak-badge { border-color: rgba(255, 102, 0, 0.4); box-shadow: 0 0 15px rgba(255, 102, 0, 0.1); }
+.level-badge { border-color: rgba(0, 184, 148, 0.4); box-shadow: 0 0 15px rgba(0, 184, 148, 0.1); }
+
+.blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.blog-meta-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.reading-time-tag {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 9px;
+  border-radius: 20px;
+  color: #94a3b8;
+}
+
+.card-actions {
+  margin-top: auto;
 }
