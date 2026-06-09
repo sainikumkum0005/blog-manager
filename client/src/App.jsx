@@ -37,7 +37,7 @@ function App() {
 
   const handleAuthSubmit = async () => {
     if (!authForm.username || !authForm.password) {
-      alert("Please fill all authentication fields!");
+      alert("Please fill all fields!");
       return;
     }
     const endpoint = isLogin ? "login" : "signup";
@@ -57,7 +57,6 @@ function App() {
   };
 
   const getGamifiedBadge = () => {
-    // Level changes on multiples of 15 days of streak
     const level = Math.floor(stats.streak / 15) + 1;
     const badges = ["Novice Writer 🐣", "Scribe Apprentice ✍️", "Wordsmith Elite 🚀", "Blog Legend 👑", "Immortal Author 🌌"];
     return { level, badgeTitle: badges[level - 1] || "God Mode 🪐" };
@@ -93,11 +92,10 @@ function App() {
     }
   };
 
-  // --- RENDERING SCENE 1: AUTHENTICATION INTERFACE (Deadly Neon-Aesthetics) ---
   if (!auth.token) {
     return (
       <div className="container" style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh" }}>
-        <div className="glass-card auth-card animate-glow">
+        <div className="glass-card auth-card">
           <h1>✨ {isLogin ? "Welcome Back" : "Create Account"}</h1>
           <p style={{ marginTop: "-10px", marginBottom: "20px" }}>Access your private creative panel</p>
           
@@ -124,10 +122,8 @@ function App() {
     );
   }
 
-  // --- RENDERING SCENE 2: INTERACTIVE DASHBOARD HUB ---
   return (
     <div className="container">
-      {/* Dynamic Profile & Gamification Stats Panel */}
       <div className="gamified-stats-bar">
         <div className="stat-badge streak-badge">
           🔥 <span className="stat-label">Streak:</span> <strong>{stats.streak} Days</strong>
@@ -189,4 +185,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

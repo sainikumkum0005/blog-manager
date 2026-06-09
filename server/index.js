@@ -6,14 +6,14 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const Blog = require("./models/Blog");
-const User = require("./models/User");
+const User = require("./models/user"); // Changed to match your exact file case
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-const JWT_SECRET = "super_secret_neon_key_123"; // Ise production me secure rakhna
+const JWT_SECRET = "super_secret_neon_key_123"; 
 
 // MongoDB Connection
 mongoose
@@ -61,7 +61,7 @@ app.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ error: "Invalid credentials!" });
 
-    // Verify Streak status on Login (Streak breaks if user misses yesterday)
+    // Verify Streak status on Login
     const todayStr = new Date().toDateString();
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
@@ -133,4 +133,4 @@ app.delete("/blogs/:id", auth, async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));  
