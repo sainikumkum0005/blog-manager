@@ -5,8 +5,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const Blog = require("./models/Blog");
-const User = require("./models/authmodel"); // Changed to match your exact file casegit rm -r --cached server/models/
+const Blog = require("./models/Blog"); // Blog schema ko as it is rehne do
 
 const app = express();
 
@@ -21,7 +20,18 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log("MongoDB Error:", err));
 
-// Authentication Middleware
+// --- 🎯 USER SCHEMA DIRECTLY INLINED (No more file path errors!) ---
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  streak: { type: Number, default: 0 },
+  lastWriteDate: { type: String, default: "" },
+}, { timestamps: true });
+
+// Agar model pehle se compiled hai toh use use karega, nahi toh naya banayega
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+
+// --- AUTHENTICATION MIDDLEWARE ---
 const auth = (req, res, next) => {
   const token = req.header("Authorization");
   if (!token) return res.status(401).json({ error: "Access Denied. No token provided." });
@@ -90,7 +100,7 @@ app.get("/user-stats", auth, async (req, res) => {
   }
 });
 
-// --- CREATE BLOG (Auth Protected + Streak Handler) ---
+// --- CREATE BLOG ---
 app.post("/blogs", auth, async (req, res) => {
   try {
     const { title, content } = req.body;
@@ -133,4 +143,4 @@ app.delete("/blogs/:id", auth, async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));  
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
