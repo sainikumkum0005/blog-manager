@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const Blog = require("./models/Blog");
-const User = require("./models/User"); // Changed to match your exact file case
+const User = require("./models/user"); // Changed to match your exact file casegit rm -r --cached server/models/
 
 const app = express();
 
