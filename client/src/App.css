@@ -251,3 +251,199 @@ button:hover {
 .card-actions {
   margin-top: auto;
 }
+/* --- Premium Auth & 3-Column Dashboard Grid Layout --- */
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.premium-auth {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.google-auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  background: #ffffff !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  border: none !important;
+}
+
+.google-auth-btn:hover {
+  background: #f1f5f9 !important;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.google-auth-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.security-footer {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 25px;
+}
+
+/* Three Column Grid Structure */
+.dashboard-grid-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 340px;
+  gap: 20px;
+  min-height: 85vh;
+  padding: 10px;
+  align-items: start;
+}
+
+/* Bar 1: Sidebar Styling */
+.sidebar-deck {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 20px;
+  height: 100%;
+}
+
+.profile-wrapper {
+  text-align: center;
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #0084ff;
+  box-shadow: 0 0 15px rgba(0, 132, 255, 0.3);
+  object-fit: cover;
+}
+
+.user-email {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.divider-line {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+}
+
+.metric-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-info .label { font-size: 0.75rem; color: #94a3b8; }
+.metric-info .val { font-size: 1rem; font-weight: 700; color: #f8fafc; }
+
+.badge-ribbon {
+  text-align: center;
+  background: linear-gradient(135deg, #0084ff, #00b894);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.sidebar-logout-btn {
+  margin-top: auto;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+  font-size: 0.85rem !important;
+  padding: 10px !important;
+}
+
+.sidebar-logout-btn:hover {
+  background: #ef4444 !important;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* Bar 2: Center Task Engine */
+.center-workspace {
+  padding: 30px;
+}
+
+.premium-input, .premium-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 14px !important;
+  color: #f8fafc !important;
+  margin-bottom: 15px;
+}
+
+.premium-textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+/* Bar 3: Right Feed Panel */
+.right-feed-panel {
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+}
+
+.scrollable-feed-area {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 5px;
+}
+
+.feed-story-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card-trash-btn {
+  background: transparent !important;
+  color: #ef4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  padding: 5px 10px !important;
+  font-size: 0.75rem !important;
+  width: auto !important;
+}
+
+.card-trash-btn:hover {
+  background: #ef4444 !important;
+  color: white !important;
+}
+
+/* Responsive Grid Adaptation */
+@media (max-width: 1024px) {
+  .dashboard-grid-layout {
+    grid-template-columns: 1fr;
+  }
+} 
