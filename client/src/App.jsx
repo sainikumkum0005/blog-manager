@@ -7,15 +7,15 @@ import "./App.css";
 const API_URL = "https://blog-manager-u4hj.onrender.com";
 
 // --- 🔥 FREEBASE CONFIGURATION ---
-// Ise tum bad me apne firebase console se real keys ke sath replace kar sakte ho
 const firebaseConfig = {
-  apiKey: "AIzaSyAsFakeKey_Example123456789",
-  authDomain: "blog-manager-auth.firebaseapp.com",
-  projectId: "blog-manager-auth",
-  storageBucket: "blog-manager-auth.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "1:1234567890:web:abcdef123456"
-};
+  apiKey: "AIzaSyBbxiOvXAwzUJnGmFumWAXQ7bIAhHMdDm4",
+  authDomain: "blog-manager-0005.firebaseapp.com",
+  projectId: "blog-manager-0005",
+  storageBucket: "blog-manager-0005.firebasestorage.app",
+  messagingSenderId: "112599006005",
+  appId: "1:112599006005:web:c88bd2e7ebafbd387fea7c",
+  measurementId: "G-N58W92DZ21"
+}; 
 
 const app = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(app);
